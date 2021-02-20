@@ -1,0 +1,15 @@
+Django
+django-dbbackup
+djangorestframework
+djoser
+djangorestframework-simplejwt
+drf-flex-fields
+django-filter
+django-jazzmin
+django-extensions
+django-webpack-loader
+django-admin-display
+celery
+psycopg2-binary
+ipython
+environs
