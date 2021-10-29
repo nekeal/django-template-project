@@ -1,6 +1,6 @@
 {
-  "template": "/home/sccad/PycharmProjects/cookiecutter-django-api",
-  "commit": "72dfb818b2e632601c17ca50dcd2bc8fde9c7d57",
+  "template": "~/PycharmProjects/cookiecutter-django-api",
+  "commit": "3169c0925c48517fb3fd4f483e1baa46293d7a05",
   "context": {
     "cookiecutter": {
       "project_name": "django_template_project",
@@ -12,7 +12,9 @@
       "use_jazzmin": "y",
       "use_drf": "y",
       "use_drf_flex_fields": "y",
+      "use_drf_yasg": "y",
       "use_jwt": "y",
+      "use_sentry": "y",
       "use_django_filters": "y",
       "use_django_extensions": "y",
       "use_tox": "y",

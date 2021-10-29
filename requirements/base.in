@@ -4,6 +4,7 @@ djangorestframework
 djoser
 djangorestframework-simplejwt
 drf-flex-fields
+drf-yasg
 django-filter
 django-jazzmin
 django-extensions
