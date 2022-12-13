@@ -1,6 +1,6 @@
 {
   "template": "~/PycharmProjects/cookiecutter-django-api",
-  "commit": "3169c0925c48517fb3fd4f483e1baa46293d7a05",
+  "commit": "0bd00b6dd7c48c9a98f8bd90474e9d1aa2f75f3f",
   "context": {
     "cookiecutter": {
       "project_name": "django_template_project",
@@ -16,12 +16,13 @@
       "use_jwt": "y",
       "use_sentry": "y",
       "use_django_filters": "y",
+      "use_django_debug_toolbar": "y",
       "use_django_extensions": "y",
       "use_tox": "y",
       "use_celery": "y",
       "use_dbbackup": "y",
       "use_react_frontend": "y",
-      "_template": "/home/sccad/PycharmProjects/cookiecutter-django-api"
+      "_template": "~/PycharmProjects/cookiecutter-django-api"
     }
   },
   "directory": null,

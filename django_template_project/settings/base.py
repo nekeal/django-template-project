@@ -30,8 +30,9 @@ THIRD_PARTY_APPS = [
     "dbbackup",
     "rest_framework",
     "rest_flex_fields",
-"drf_yasg",
+    "drf_yasg",
     "django_filters",
+    "debug_toolbar",
     "djoser",
     "rest_framework_simplejwt",
     "django_extensions",
@@ -43,10 +44,13 @@ LOCAL_APPS = ["django_template_project.accounts.apps.AccountsConfig"]
 
 INSTALLED_APPS = DJANGO_APPS + THIRD_PARTY_APPS + LOCAL_APPS
 
+DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
+
 # ------------- MIDDLEWARES -------------
 MIDDLEWARE = [
     "django.middleware.security.SecurityMiddleware",
     "django.contrib.sessions.middleware.SessionMiddleware",
+    "debug_toolbar.middleware.DebugToolbarMiddleware",
     "django.middleware.common.CommonMiddleware",
     "django.middleware.csrf.CsrfViewMiddleware",
     "django.contrib.auth.middleware.AuthenticationMiddleware",
@@ -129,4 +133,18 @@ WEBPACK_LOADER = {
         "BUNDLE_DIR_NAME": f"{PROJECT_NAME}/frontend/build/",
         "STATS_FILE": BASE_DIR.joinpath(PROJECT_NAME, "frontend", "webpack-stats.json"),
     }
+}
+
+# ------------- DEBUG TOOLBAR ------------
+
+INTERNAL_IPS = [
+    "127.0.0.1",
+]
+
+# ------------- REST FRAMEWORK ------------
+REST_FRAMEWORK = {
+    "DEFAULT_AUTHENTICATION_CLASSES": (
+        "rest_framework_simplejwt.authentication.JWTAuthentication",
+    ),
+    "DEFAULT_FILTER_BACKENDS": ("django_filters.rest_framework.DjangoFilterBackend",),
 }

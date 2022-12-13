@@ -8,6 +8,7 @@ drf-yasg
 django-filter
 django-jazzmin
 django-extensions
+django-debug-toolbar
 django-webpack-loader
 django-admin-display
 celery
