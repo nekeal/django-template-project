@@ -1,5 +1,5 @@
 {
-  "template": "~/PycharmProjects/cookiecutter-django-api",
+  "template": "~/projects/python/cookiecutter-django-api",
   "commit": "0bd00b6dd7c48c9a98f8bd90474e9d1aa2f75f3f",
   "context": {
     "cookiecutter": {
@@ -22,7 +22,7 @@
       "use_celery": "y",
       "use_dbbackup": "y",
       "use_react_frontend": "y",
-      "_template": "~/PycharmProjects/cookiecutter-django-api"
+      "_template": "~/projects/python/cookiecutter-django-api"
     }
   },
   "directory": null,
