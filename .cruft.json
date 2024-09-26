@@ -1,10 +1,48 @@
 {
   "template": "~/projects/python/cookiecutter-django-api",
-  "commit": "0bd00b6dd7c48c9a98f8bd90474e9d1aa2f75f3f",
+  "commit": "cb22c2dd76d4b2a3dfbc6f845cf9b133b4692bb2",
   "context": {
     "cookiecutter": {
       "project_name": "django_template_project",
       "full_project_name": "Django template project",
+      "python_version": "3.12+",
+      "_python_version_specs": {
+        "3.8+": {
+          "versions": [
+            "3.8",
+            "3.9",
+            "3.10",
+            "3.11",
+            "3.12"
+          ]
+        },
+        "3.9+": {
+          "versions": [
+            "3.9",
+            "3.10",
+            "3.11",
+            "3.12"
+          ]
+        },
+        "3.10+": {
+          "versions": [
+            "3.10",
+            "3.11",
+            "3.12"
+          ]
+        },
+        "3.11+": {
+          "versions": [
+            "3.11",
+            "3.12"
+          ]
+        },
+        "3.12+": {
+          "versions": [
+            "3.12"
+          ]
+        }
+      },
       "github_username": "nekeal",
       "github_repository_name": "django-template-project",
       "email": "szymon.sc.cader@gmail.com",
@@ -22,6 +60,7 @@
       "use_celery": "y",
       "use_dbbackup": "y",
       "use_react_frontend": "y",
+      "use_pre_commit": "y",
       "_template": "~/projects/python/cookiecutter-django-api"
     }
   },

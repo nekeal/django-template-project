@@ -31,4 +31,5 @@ urlpatterns = [
     ),
     path("", TemplateView.as_view(template_name="index.html")),
     path("__debug__/", include("debug_toolbar.urls")),
+    path("i18n/", include("django.conf.urls.i18n")),
 ]

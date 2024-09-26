@@ -39,11 +39,20 @@ make bootstrap
 
 Start the dev server for local development:
 ```bash
-docker-compose up
+docker compose up
 ```
 
 Run a command inside the docker container:
 
 ```bash
-docker-compose run --rm web [command]
+docker compose run --rm web [command]
+```
+
+
+## Pre-commit hooks
+
+To install pre-commit hooks run:
+
+```bash
+pre-commit install
 ```

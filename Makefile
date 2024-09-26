@@ -47,10 +47,8 @@ clean-test: ## remove test and coverage artifacts
 
 test: ## run tests quickly with the default Python
 	pytest django_template_project
-
 test-all: ## run tests on every Python version with tox
 	tox
-
 coverage: ## check code coverage quickly with the default Python
 	pytest --cov=django_template_project django_template_project
 	coverage report -m
@@ -58,22 +56,28 @@ coverage: ## check code coverage quickly with the default Python
 	$(BROWSER) htmlcov/index.html
 
 quality-check: ## check quality of code
-	black --check django_template_project
-	isort --check django_template_project
-	flake8 django_template_project
-	mypy django_template_project
+	ruff format django_template_project
+	ruff check django_template_project
+	dmypy run django_template_project
 
 autoformatters: ## runs auto formatters
-	black django_template_project
-	isort django_template_project
+	ruff format django_template_project
 
-pip-compile:
+_install_pip_tools:
+	python -m piptools > /dev/null 2>&1 || pip install pip-tools
+
+pip-compile: _install_pip_tools
 	ls requirements/*.in | xargs -n 1 pip-compile
 
-bootstrap: ## bootstrap project
+install_requirements: _install_pip_tools  ## install python requirements
 	pip install -r requirements/dev.txt
+install_pre_commit:  ## install pre-commit hooks
+	pre-commit install --install-hooks
+	pre-commit install -t commit-msg
+
+bootstrap: install_requirementsinstall_pre_commit  ## bootstrap project
 	python manage.py migrate
-	python manage.py loaddata fixtures/*
+	[ -d fixtures ] && python manage.py loaddata fixtures/*.yaml || exit 0
 
 rebuild-db:  ## recreates database with fixtures
 	echo yes | python manage.py reset_db
@@ -81,9 +85,9 @@ rebuild-db:  ## recreates database with fixtures
 	python manage.py loaddata fixtures/*
 
 bootstrap-docker:  ## bootstrap project in docker
-	docker-compose up --build -d
-	docker-compose exec web python manage.py migrate
-	docker-compose exec web python manage.py loaddata fixtures/*
+	docker compose up --build -d
+	docker compose exec web python manage.py migrate
+	docker compose exec web python manage.py loaddata fixtures/*.yaml
 
 show-docker-tags: ## shows docker tags for building and pushing image
 	echo $(TAGS)

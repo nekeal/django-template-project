@@ -1,11 +1,15 @@
 -r base.txt
 pytest
+matchlib
+time-machine
+pytest-asyncio
+pytest-cov
 pytest-django
 pytest-sugar
 pytest-xdist
-flake8
-flake8-formatter-abspath
-black
-isort
+pre-commit
+factory-boy
+ruff
 mypy
 django-stubs
+tox
