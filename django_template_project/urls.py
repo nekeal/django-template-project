@@ -1,6 +1,5 @@
 from django.contrib import admin
 from django.urls import include, path
-from django.views.generic import TemplateView
 from drf_yasg import openapi
 from drf_yasg.views import get_schema_view
 from rest_framework import permissions
@@ -21,15 +20,12 @@ router = DefaultRouter()
 urlpatterns = [
     path("admin/", admin.site.urls),
     path("api/", include(router.urls)),
-    path(
-        "api/doc/", schema_view.with_ui("redoc", cache_timeout=0), name="schema-redoc"
-    ),
+    path("api/doc/", schema_view.with_ui("redoc", cache_timeout=0), name="schema-redoc"),
     path(
         "api/swagger/",
         schema_view.with_ui("swagger", cache_timeout=0),
         name="schema-swagger",
     ),
-    path("", TemplateView.as_view(template_name="index.html")),
     path("__debug__/", include("debug_toolbar.urls")),
     path("i18n/", include("django.conf.urls.i18n")),
 ]

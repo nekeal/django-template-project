@@ -29,7 +29,9 @@ jobs:
         with:
           python-version: "3.10"
       - name: Install python requirements
-        run: pip install --user -r ../../requirements/deployment.txt
+        run: |
+          pip install --user uv
+          uv sync
       - name: Register python site packages
         run: echo "SITE_PACKAGES=$(python -m site --user-site)" >> $GITHUB_ENV
       - name: Wait for all other check to complete
@@ -41,4 +43,3 @@ jobs:
           running-workflow-name: deploy
       - name: Run deployment check
         run: ansible-playbook -i inventory.txt django_template_project.yml -t docker_container -e "_docker_tag=${{ github.sha }}"
-

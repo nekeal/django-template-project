@@ -1,12 +1,11 @@
 from pathlib import Path
 
-from environs import Env
+from . import env
+
 # noinspection PyUnresolvedReferences
 # flake8: noqa
 from .conf.theme import *
 from .conf.celery_settings import *
-
-env = Env()
 
 PROJECT_NAME = "django_template_project"
 
@@ -36,11 +35,8 @@ THIRD_PARTY_APPS = [
     "drf_yasg",
     "django_filters",
     "debug_toolbar",
-    "djoser",
-    "rest_framework_simplejwt",
     "django_extensions",
     "celery",
-    "webpack_loader",
 ]
 
 LOCAL_APPS = [
@@ -132,21 +128,10 @@ LOCALE_PATHS = (BASE_DIR.joinpath("locale"),)
 # ------------- STATIC -------------
 STATIC_URL = env.str("DJANGO_STATIC_URL", default="/static/")
 STATIC_ROOT = BASE_DIR.joinpath("public")
-STATICFILES_DIRS = [
-    BASE_DIR.joinpath(PROJECT_NAME, "frontend", "build", "static"),
-]
 
 # ------------- MEDIA -------------
 MEDIA_URL = "/media/"
 MEDIA_ROOT = BASE_DIR.joinpath("media")
-
-# ------------- WEBPACK ------------
-WEBPACK_LOADER = {
-    "DEFAULT": {
-        "BUNDLE_DIR_NAME": f"{PROJECT_NAME}/frontend/build/",
-        "STATS_FILE": BASE_DIR.joinpath(PROJECT_NAME, "frontend", "webpack-stats.json"),
-    }
-}
 
 # ------------- DEBUG TOOLBAR ------------
 
@@ -156,8 +141,5 @@ INTERNAL_IPS = [
 
 # ------------- REST FRAMEWORK ------------
 REST_FRAMEWORK = {
-    "DEFAULT_AUTHENTICATION_CLASSES": (
-        "rest_framework_simplejwt.authentication.JWTAuthentication",
-    ),
     "DEFAULT_FILTER_BACKENDS": ("django_filters.rest_framework.DjangoFilterBackend",),
 }

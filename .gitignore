@@ -10,9 +10,7 @@ __pycache__
 db.sqlite3
 /media
 local_settings.py
-# React #
-frontend/build
-frontend/config
+
 
 # Backup files #
 *.bak
